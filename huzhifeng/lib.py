@@ -7,6 +7,20 @@ import json
 import requests
 import wget
 
+def dumpObj(obj):
+    if not obj:
+        return
+    print(json.dumps(obj, ensure_ascii=False, indent=2))
+
+def hasKeys(obj, keys):
+    if not obj:
+        return False
+    if not keys:
+        return False
+    if set(keys).issubset(obj):
+        return True
+    return False
+
 def format_filename(fname):
     invalid_chars = '/\:*?"<>|'
     filename = ''
